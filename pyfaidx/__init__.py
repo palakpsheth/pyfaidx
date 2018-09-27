@@ -29,8 +29,7 @@ dna_bases = re.compile(r'([ACTGNactgnYRWSKMDVHBXyrwskmdvhbx]+)')
 __version__ = '0.5.5'
 
 s3_config = {"ServerSideEncryption": "AES256",
-             "ACL": 'bucket-owner-full-control',
-             "GrantFullControl": 'emailaddress=aws-master-admins@humanlongevity.com'}
+             "ACL": 'bucket-owner-full-control'}
 
 class KeyFunctionError(ValueError):
     """Raised if the key_function argument is invalid."""
