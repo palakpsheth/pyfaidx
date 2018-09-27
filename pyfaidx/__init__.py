@@ -509,7 +509,7 @@ class Faidx(object):
     def build_index(self):
         try:
             with self._fasta_opener(self.filename, 'rb') as fastafile:
-                with smart_open(self.indexname, 'w', config=s3_config) as indexfile:
+                with smart_open(self.indexname, 'w', s3_upload=s3_config) as indexfile:
                     rname = None  # reference sequence name
                     offset = 0  # binary offset of end of current line
                     rlen = 0  # reference character length
@@ -594,7 +594,7 @@ class Faidx(object):
 
     def write_fai(self):
         with self.lock:
-            with smart_open(self.indexname, 'w', confg=s3_config) as outfile:
+            with smart_open(self.indexname, 'w', s3_upload=s3_config) as outfile:
                 for line in self._index_as_string:
                     outfile.write(line)
 
